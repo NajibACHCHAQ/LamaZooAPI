@@ -4,12 +4,14 @@
   "description": "API pour prescription et suivi des soins du zoo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "najib",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "mysql2": "^3.6.2"
   }
 }
