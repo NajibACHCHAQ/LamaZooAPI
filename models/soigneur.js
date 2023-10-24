@@ -1,13 +1,18 @@
 // models/Soigneur.js
-const User = require('./user');
+const Sequelize = require('sequelize');
+const sequelize = require('../config/sequelize');
 
-class Soigneur extends User {
-  constructor(id, firstName, lastName, specialty, username, password) {
-    super(id, firstName, lastName, specialty, username, password);
-    // Vous pouvez ajouter des propriétés spécifiques aux soigneurs ici.
-  }
-
-  // Vous pouvez ajouter des méthodes spécifiques aux soigneurs ici.
-}
+const Soigneur = sequelize.define('soigneur', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  firstName: Sequelize.STRING,
+  lastName: Sequelize.STRING,
+  specialty: Sequelize.STRING,
+  username: Sequelize.STRING,
+  password: Sequelize.STRING,
+});
 
 module.exports = Soigneur;

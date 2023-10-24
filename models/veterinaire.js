@@ -1,13 +1,19 @@
 // models/Veterinaire.js
-const User = require('./user');
+const Sequelize = require('sequelize');
+const sequelize = require('../config/sequelize'); // Assurez-vous que le chemin est correct
 
-class Veterinaire extends User {
-  constructor(id, firstName, lastName, specialty, username, password) {
-    super(id, firstName, lastName, specialty, username, password);
-    // Vous pouvez ajouter des propriétés spécifiques aux vétérinaires ici.
-  }
-
-  // Vous pouvez ajouter des méthodes spécifiques aux vétérinaires ici.
-}
+const Veterinaire = sequelize.define('veterinaire', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  firstName: Sequelize.STRING,
+  lastName: Sequelize.STRING,
+  specialty: Sequelize.STRING,
+  username: Sequelize.STRING,
+  password: Sequelize.STRING,
+});
 
 module.exports = Veterinaire;
+
