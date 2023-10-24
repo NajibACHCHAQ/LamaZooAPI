@@ -1,0 +1,15 @@
+{
+  "name": "lamazooapi",
+  "version": "1.0.0",
+  "description": "API pour prescription et suivi des soins du zoo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "najib",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.2"
+  }
+}
