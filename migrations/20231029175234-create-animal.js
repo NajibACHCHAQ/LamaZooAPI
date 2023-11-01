@@ -2,31 +2,23 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('veterinaires', {
+    await queryInterface.createTable('animals', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      firstName: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
-      lastName: {
+      type: {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
-      specialty: {
+      enclosure: {
         type: Sequelize.STRING,
         allowNull: true, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      password: {
-        type: Sequelize.STRING,
-        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -40,8 +32,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('veterinaires');
+    await queryInterface.dropTable('animals');
   }
 };
-
 
