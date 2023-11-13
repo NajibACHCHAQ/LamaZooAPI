@@ -16,8 +16,12 @@ const Soigneur = sequelize.define('soigneur', {
   mail: Sequelize.STRING,
 });
 
-// Déclarer l'association One-to-Many entre Soigneur et Intervention
+// Associer le modèle Soigneur à Intervention avec une relation "hasMany",
+// indiquant qu'un Soigneur peut avoir plusieurs Interventions avec 'soigneurId' comme clé étrangère.
 Soigneur.hasMany(Intervention, { foreignKey: 'soigneurId' });
+// Associer le modèle Intervention à Soigneur avec une relation "belongsTo",
+// où chaque Intervention a une clé étrangère 'soigneurId' qui fait référence à l'ID du Soigneur associé.
 Intervention.belongsTo(Soigneur, { foreignKey: 'soigneurId' });
+
 
 module.exports = Soigneur;
