@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      firstName: {
+      nom: {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
-      lastName: {
+      prenom: {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
@@ -25,6 +25,10 @@ module.exports = {
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
       password: {
+        type: Sequelize.STRING,
+        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
+      },
+      mail: {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },

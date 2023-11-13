@@ -24,7 +24,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      treatment: {
+      designation: {
+        type: Sequelize.STRING,
+        allowNull: true, // Vous pouvez définir allowNull en fonction de vos besoins
+      },
+      description: {
         type: Sequelize.STRING,
         allowNull: true, // Vous pouvez définir allowNull en fonction de vos besoins
       },

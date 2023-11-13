@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const animalCtrl = require('../controllers/animalController');
 
-// Définit les routes en utilisant le contrôleur 'AnimalCtrl'.
+// Définit les routes en utilisant le contrôleur ''.
 router.post('/', animalCtrl.createAnimal); // Route pour créer un nouvel objet 'Thing' en utilisant une requête POST.
 router.get('/', animalCtrl.getAllAnimal); // Route pour récupérer tous les objets 'Thing' en utilisant une requête GET.
 router.get('/:id', animalCtrl.getById); // Route pour récupérer un objet 'Thing par son ID en utilisant une requête GET.

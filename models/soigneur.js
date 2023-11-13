@@ -1,4 +1,4 @@
-// models/Soigneur.js
+// models/Veterinaire.js
 const Sequelize = require('sequelize');
 const sequelize = require('../config/sequelize');
 
@@ -8,11 +8,12 @@ const Soigneur = sequelize.define('soigneur', {
     primaryKey: true,
     autoIncrement: true,
   },
-  firstName: Sequelize.STRING,
-  lastName: Sequelize.STRING,
+  nom: Sequelize.STRING,
+  prenom: Sequelize.STRING,
   specialty: Sequelize.STRING,
   username: Sequelize.STRING,
   password: Sequelize.STRING,
+  mail:Sequelize.STRING,
 });
 
 module.exports = Soigneur;

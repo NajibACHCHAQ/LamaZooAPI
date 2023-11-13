@@ -1,47 +1,19 @@
-'use strict';
+// models/Soigneur.js
+const Sequelize = require('sequelize');
+const sequelize = require('../config/sequelize');
 
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('veterinaires', {
-      id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      firstName: {
-        type: Sequelize.STRING,
-        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      lastName: {
-        type: Sequelize.STRING,
-        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      specialty: {
-        type: Sequelize.STRING,
-        allowNull: true, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      password: {
-        type: Sequelize.STRING,
-        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-    });
+const Veterinaire = sequelize.define('veterinaire', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
   },
+  nom: Sequelize.STRING,
+  prenom: Sequelize.STRING,
+  specialty: Sequelize.STRING,
+  username: Sequelize.STRING,
+  password: Sequelize.STRING,
+  mail:Sequelize.STRING,
+});
 
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('veterinaires');
-  }
-};
-
-
+module.exports = Veterinaire;

@@ -12,11 +12,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
+      espece: {
+        type: Sequelize.STRING,
+        allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
+      },
       type: {
         type: Sequelize.STRING,
         allowNull: false, // Vous pouvez définir allowNull en fonction de vos besoins
       },
-      enclosure: {
+      emplacement: {
         type: Sequelize.STRING,
         allowNull: true, // Vous pouvez définir allowNull en fonction de vos besoins
       },

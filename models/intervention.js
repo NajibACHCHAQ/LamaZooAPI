@@ -12,7 +12,8 @@ const Intervention = sequelize.define('intervention', {
   animalId: Sequelize.INTEGER, // Remplacez par le type de données correct, tel que 'Sequelize.INTEGER'
   veterinaireId: Sequelize.INTEGER, // Même chose ici
   soigneurId: Sequelize.INTEGER, // Même chose ici
-  treatment: Sequelize.STRING,
+  description: Sequelize.STRING,
+  designation: Sequelize.STRING,
 });
 
 module.exports = Intervention;
