@@ -1,19 +1,23 @@
-// Importation des modules nécessaires
-const Sequelize = require('sequelize'); // Importe la bibliothèque Sequelize
-const sequelize = require('../sequelize'); // Importe la configuration Sequelize
+const Sequelize = require('sequelize');
+const sequelize = require('../sequelize');
+const Intervention = require('./intervention');
 
-// Définition du modèle Animal
 const Animal = sequelize.define('animal', {
   id: {
-    type: Sequelize.INTEGER,         // Champ ID de type entier (integer)
-    primaryKey: true,               // Champ clé primaire
-    autoIncrement: true,            // Auto-incrémentation activée pour ID
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
   },
-  name: Sequelize.STRING,           // Champ "name" de type chaîne de caractères (string)
-  type: Sequelize.STRING,           // Champ "type" de type chaîne de caractères (string)
-  enclosure: Sequelize.STRING,      // Champ "enclosure" de type chaîne de caractères (string)
+  name: Sequelize.STRING,
+  espece: Sequelize.STRING,
+  type: Sequelize.STRING,
+  emplacement: Sequelize.STRING,
 });
 
-// Exportation du modèle Animal pour une utilisation ultérieure
+// Associations
+Animal.hasMany(Intervention, { foreignKey: 'animalId' });
+Intervention.belongsTo(Animal, { foreignKey: 'animalId' });
+
 module.exports = Animal;
+
 
