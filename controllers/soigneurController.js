@@ -18,13 +18,13 @@ exports.createSoigneur = (req, res, next) => {
   
   // Définissez une route GET pour récupérer un objet "chose" par ID
   exports.getById = (req, res, next) => {
-    // Utilisez `Animal.findByPk` pour rechercher l'objet par sa clé primaire (ID)
+    // fIND BY iD
     Soigneur.findByPk(req.params.id)
       .then((soigneur) => {
         if (soigneur) {
           res.status(200).json(soigneur);
         } else {
-          res.status(404).json({ message: 'Objet non trouvé' });
+          res.status(404).json({ message: 'Soigneur non trouvé' });
         }
       })
       .catch((error) => res.status(500).json({ error }));
@@ -46,15 +46,15 @@ exports.createSoigneur = (req, res, next) => {
         where: { id: req.params.id },
       }
     )
-      .then(() => res.status(200).json({ message: 'Objet modifié !' }))
+      .then(() => res.status(200).json({ message: 'soigneur modifié !' }))
       .catch((error) => res.status(400).json({ error }));
   };
   
   // Définissez une route GET pour récupérer tous les objets "choses"
   exports.getAllSoigneur = (req, res, next) => {
     // Utilisez `Animal.findAll` pour récupérer tous les objets dans la base de données
-    Animal.findAll()
-      .then((soigneurs) => res.status(200).json(soigneurs))
+    Soigneur.findAll()
+      .then((Soigneurs) => res.status(200).json(Soigneurs))
       .catch((error) => res.status(500).json({ error }));
   };
   
@@ -64,7 +64,7 @@ exports.createSoigneur = (req, res, next) => {
     Soigneur.destroy({
       where: { id: req.params.id },
     })
-      .then(() => res.status(200).json({ message: 'Objet supprimé !' }))
+      .then(() => res.status(200).json({ message: 'Soigneur supprimé !' }))
       .catch((error) => res.status(500).json({ error }));
   };
 
