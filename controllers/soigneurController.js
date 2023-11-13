@@ -33,14 +33,14 @@ exports.createSoigneur = (req, res, next) => {
   // Définissez une route PUT pour mettre à jour un objet "chose" par ID
   exports.updateOne = (req, res, next) => {
     // Récupérez les données du corps de la requête
-    const { name, type, enclosure } = req.body;
+    const { specialty, mail, password } = req.body;
   
     // Utilisez `Animal.update` pour mettre à jour l'objet dans la base de données
     Animal.update(
       {
-        name,
-        type,
-        enclosure
+        specialty,
+        mail,
+        password
       },
       {
         where: { id: req.params.id },
@@ -51,10 +51,10 @@ exports.createSoigneur = (req, res, next) => {
   };
   
   // Définissez une route GET pour récupérer tous les objets "choses"
-  exports.getAllAnimal = (req, res, next) => {
+  exports.getAllSoigneur = (req, res, next) => {
     // Utilisez `Animal.findAll` pour récupérer tous les objets dans la base de données
     Animal.findAll()
-      .then((animals) => res.status(200).json(animals))
+      .then((soigneurs) => res.status(200).json(soigneurs))
       .catch((error) => res.status(500).json({ error }));
   };
   
@@ -71,7 +71,7 @@ exports.createSoigneur = (req, res, next) => {
   exports.login = (req, res, next) => {
     Soigneur.findOne({ mail: req.body.mail })
         .then(user => {
-            if (!user) {
+            if (!soigneur) {
                 return res.status(401).json({ message: 'Paire login/mot de passe incorrecte'});
             }
             bcrypt.compare(req.body.password, soigneur.password)
@@ -80,7 +80,7 @@ exports.createSoigneur = (req, res, next) => {
                         return res.status(401).json({ message: 'Paire login/mot de passe incorrecte' });
                     }
                     res.status(200).json({
-                        userId: user._id,
+                        soigneurId: soigneur._id,
                         token: jwt.sign(
                             {soigneurId:soigneur._id},
                             'MOT_DE_PASSE_TOP_SECRET_DEFENSE_ULTRA_CONFIDENTIEL_PIRE_QUE_LA_NASA',

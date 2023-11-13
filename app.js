@@ -4,6 +4,8 @@ const sequelize = require('./sequelize'); // Outil ORM pour la base de données
 const cors = require('cors'); // Middleware pour gérer les problèmes de partage de ressources inter-origines (CORS)
 const routeAnimal = require('./routes/routeAnimal');
 const routeIntervention = require('./routes/routeIntervention');
+const routeVeterinaire = require('./routes/routeVeterinaire');
+const routeSoigneur = require('./routes/routeSoigneur');
 // Créez une instance Express
 const app = express();
 app.use(express.json());
@@ -23,6 +25,8 @@ sequelize.sync()
   });
 app.use('/api/animal', routeAnimal);
 app.use('/api/intervention', routeIntervention);
+app.use('/api/veterinaire', routeVeterinaire);
+app.use('/api/soigneur', routeSoigneur);
 // Exportez l'application Express pour l'utiliser ailleurs
 module.exports = app;
 

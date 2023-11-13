@@ -2,7 +2,7 @@ const Veterinaire = require('../models/veterinaire'); // Modèle Sequelize pour 
 // Définissez une route POST pour créer un nouvel objet "chose"
 exports.createVeterinaire = (req, res, next) => {
     // Récupérez les données du corps de la requête
-    const { nom, prenom, specialty, mail } = req.body;
+    const { nom, prenom, specialty, mail, password } = req.body;
   
     // Utilisez le modèle `Animal` pour créer une nouvelle entrée dans la base de données
     Veterinaire.create({
@@ -51,17 +51,17 @@ exports.createVeterinaire = (req, res, next) => {
   };
   
   // Définissez une route GET pour récupérer tous les objets "choses"
-  exports.getAllAnimal = (req, res, next) => {
+  exports.getAllVeterinaire = (req, res, next) => {
     // Utilisez `Animal.findAll` pour récupérer tous les objets dans la base de données
-    Animal.findAll()
-      .then((animals) => res.status(200).json(animals))
+    Veterinaire.findAll()
+      .then((veterinaires) => res.status(200).json(veterinaires))
       .catch((error) => res.status(500).json({ error }));
   };
   
   // Définissez une route DELETE pour supprimer un objet "chose" par ID
   exports.deleteOne = (req, res, next) => {
     // Utilisez `Animal.destroy` pour supprimer l'objet de la base de données
-    Soigneur.destroy({
+    Veterinaire.destroy({
       where: { id: req.params.id },
     })
       .then(() => res.status(200).json({ message: 'Objet supprimé !' }))
@@ -69,20 +69,20 @@ exports.createVeterinaire = (req, res, next) => {
   };
 
   exports.login = (req, res, next) => {
-    Soigneur.findOne({ mail: req.body.mail })
-        .then(user => {
-            if (!user) {
+    Veterinaire.findOne({ mail: req.body.mail })
+        .then(veterinaire => {
+            if (!veterinaire) {
                 return res.status(401).json({ message: 'Paire login/mot de passe incorrecte'});
             }
-            bcrypt.compare(req.body.password, soigneur.password)
+            bcrypt.compare(req.body.password, veterinaire.password)
                 .then(valid => {
                     if (!valid) {
                         return res.status(401).json({ message: 'Paire login/mot de passe incorrecte' });
                     }
                     res.status(200).json({
-                        userId: user._id,
+                        veterinaireId: veterinaire._id,
                         token: jwt.sign(
-                            {soigneurId:soigneur._id},
+                            {veterinaireId:veterinaire._id},
                             'MOT_DE_PASSE_TOP_SECRET_DEFENSE_ULTRA_CONFIDENTIEL_PIRE_QUE_LA_NASA',
                             {expiresIn:'24h'}
                         )
