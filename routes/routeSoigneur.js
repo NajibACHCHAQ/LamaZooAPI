@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const soigneurCtrl = require('../controllers/soigneurController');
 
+
 // Définit les routes en utilisant le contrôleur 'AnimalCtrl'.
 router.post('/', soigneurCtrl.createSoigneur); // Route pour créer un nouvel objet 'Thing' en utilisant une requête POST.
 router.get('/', soigneurCtrl.getAllSoigneur); // Route pour récupérer tous les objets 'Thing' en utilisant une requête GET.

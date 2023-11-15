@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../config/sequelize');
+const sequelize = require('../sequelize');
 const Intervention = require('./intervention');
 
 const Veterinaire = sequelize.define('veterinaire', {
@@ -16,8 +16,5 @@ const Veterinaire = sequelize.define('veterinaire', {
   mail: Sequelize.STRING,
 });
 
-// Associations
-Veterinaire.hasMany(Intervention, { foreignKey: 'veterinaireId' });
-Intervention.belongsTo(Veterinaire, { foreignKey: 'veterinaireId' });
 
 module.exports = Veterinaire;

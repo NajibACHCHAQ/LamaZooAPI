@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('lamazooapi2', 'root', '', {
+const sequelize = new Sequelize('lamazooapi5', 'root', '', {
   host: 'localhost',
   dialect: 'mysql', // Utilisation du dialecte MySQL
 });

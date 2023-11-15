@@ -1,16 +1,14 @@
-const Animal = require('../models/animal'); // Modèle Sequelize pour les objets "choses" dans la base de données
+const Animal = require('../models/animal'); 
 
 
-// Définissez une route POST pour créer un nouvel objet "chose"
 exports.createAnimal = (req, res, next) => {
-    // Récupérez les données du corps de la requête
-    const { name, type, enclosure } = req.body;
+    const { name, type, emplacement, espece } = req.body;
   
-    // Utilisez le modèle `Animal` pour créer une nouvelle entrée dans la base de données
     Animal.create({
       name,
       type,
-      enclosure
+      emplacement,
+      espece
     })
       .then(() => res.status(201).json({ message: 'Objet enregistré !' }))
       .catch((error) => res.status(400).json({ error }));

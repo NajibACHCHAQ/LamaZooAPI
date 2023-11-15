@@ -2,9 +2,9 @@ const Soigneur = require('../models/soigneur'); // Modèle Sequelize pour les ob
 // Définissez une route POST pour créer un nouvel objet "chose"
 exports.createSoigneur = (req, res, next) => {
     // Récupérez les données du corps de la requête
-    const { nom, prenom, specialty, mail } = req.body;
+    const { nom, prenom, specialty, mail, password } = req.body;
   
-    // Utilisez le modèle `Animal` pour créer une nouvelle entrée dans la base de données
+    // Utilisez le modèle `Soigneur` pour créer une nouvelle entrée dans la base de données
     Soigneur.create({
       nom,
       prenom,
@@ -36,7 +36,7 @@ exports.createSoigneur = (req, res, next) => {
     const { specialty, mail, password } = req.body;
   
     // Utilisez `Animal.update` pour mettre à jour l'objet dans la base de données
-    Animal.update(
+    Soigneur.update(
       {
         specialty,
         mail,
