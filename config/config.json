@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "lamazooapi5",
-    "host": "127.0.0.1",
+    "password": "my-secret-pw",
+    "database": "lamazooapi6",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {

@@ -16,5 +16,8 @@ const Veterinaire = sequelize.define('veterinaire', {
   mail: Sequelize.STRING,
 });
 
+// Associations
+// Veterinaire.hasMany(Intervention, { foreignKey: 'veterinaireId' });
+// Intervention.belongsTo(Veterinaire, { foreignKey: 'veterinaireId' });
 
 module.exports = Veterinaire;
